@@ -36,12 +36,12 @@ std::vector<state_type> Scheduler::compute_dependencies() {
     state_type termination_requirement(0);
     for (unsigned int i = 0, n_algos = algos_.size(); i < n_algos; ++i) {
         state_type requirements(0);
-        printf(" %i: %s\n",i,algos_[i]->get_name());
+        //printf(" %i: %s\n",i,algos_[i]->get_name());
         const std::vector<std::string>& inputs = algos_[i]->get_inputs();
         for (unsigned int j = 0, n_inputs = inputs.size(); j < n_inputs; ++j){
             unsigned int input_index = product_indices[inputs[j]];
             requirements[input_index] = true;
-            printf("\tconnecting to %s (via '%s')\n", algos_[input_index]->get_name(), inputs[j].c_str());
+            //printf("\tconnecting to %s (via '%s')\n", algos_[input_index]->get_name(), inputs[j].c_str());
         }
         all_requirements[i] = requirements;
         termination_requirement[i] = true;
